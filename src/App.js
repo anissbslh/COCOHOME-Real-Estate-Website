@@ -3,6 +3,9 @@ import background from './assets/backgroundPhoto.png'
 
 import { useState } from 'react';
 
+//YO ANISS TAS QUOI FRERE
+//encore
+
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Header from './components/Header';
