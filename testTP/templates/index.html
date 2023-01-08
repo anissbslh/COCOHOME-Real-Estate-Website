@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test TP</title>
+</head>
+<body>
+    <h1>
+        Vous allez déposez vos annonces ici 
+    </h1>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    
+</body>
+</html>
