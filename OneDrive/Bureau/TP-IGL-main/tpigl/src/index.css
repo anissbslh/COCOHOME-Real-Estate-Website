@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
+.accueil {
+  color: #fff;
+  background: url(./assets/backgroundPhoto.png);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding: 0 7%;
+}
+.accueil h1 {
+  font-family: 'Montserrat';
+  font-weight:700;
+  font-size: max(6vw,60px);
+  padding: 15% 0 5% 0%;
+  line-height:100%;
+  max-width: 50%;
+}
+.accueil-btn-container{
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  align-items: center;
+}
+.accueil-btn-gauche {
+  background-color: transparent;
+  font-size: medium;
+  border: 1px solid #FFAC12;
+  width: 50%;
+  padding: 13px;
+  font-weight: 400;
+  font-size: 80%; 
+  color: #fff;
+  display: inline;
+}
+.accueil-btn-connecter {
+  background-color: #FFAC12;
+  min-width: 100px;
+  font-weight: 800;
+  font-size: 80%; 
+  border-radius: 0 25px 0 0 ;
+}
+
+.accueil-apropos {
+  display: flex;
+  color: black;
+  margin: 5% 7%;
+}
+.acceuil-apropos-image {
+  width: 50%;
+  height: auto;
+  
+}
+.acceuil-apropos-textes {
+  margin: 0% 2%;
+  display: flex;
+  flex-direction: column;
+}
+.acceuil-apropos-textes h1 {
+  font-family: 'Montserrat';
+  font-weight:700;
+  font-size: 4vw;
+  min-width: 100px;
+}
+.acceuil-apropos-textes p {
+  font-family: 'Montserrat';
+  font-size: 2vw;
+  padding: 7% 0;
+}
+
+
+
+
+.navbar {
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  padding: 1.7% 7% ;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  background: black;  
+  color: #fff;
+  z-index: 9999;
+}
+.navbar .links {
+  margin-left: auto;
+  font-size: 1.2vw; 
+}
+.navbar a {
+  margin-left: auto;
+  margin: 0 2vh;
+  text-decoration: none;
+  color: #fff;
+}
+.navbar .connect {
+  color: black;
+  font-weight: bold;
+  background-color: #FFAC12;
+  border-radius: 0 25px 0 0 ;
+  padding: 1vw 2vw;
+}
+.navbar .connect:hover {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #FFAC12;
+  padding: 1vw 2vw;
+  box-sizing: border-box;
+}
+.navbar h1 {
+  font-family: 'Montserrat';
+  font-weight:600;
+  font-size: 1.5vw;
+  padding: 1% 0 5% 0%;
+}
+
+.footer{
+  height: 200px;
+  
+  background-color: black;
+  padding: 3% 7%;
+  
+}
+.footer-up {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.home {
+  
+}
+.home-recherche {
+  color: #fff;
+  background: url(./assets/backgroundPhotoBlur.png);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding: 0 7%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.recherche{
+  background-color: #fff;
+  color: #000;
+  padding: 50px;
+  border-radius: 8px;
+  width: 100%;
+  margin: 20px;
+}
+.recherche label {
+  text-align: left;
+  display: block;
+  margin: 1% 0;
+  font-size: larger;
+  font-weight: 500;
+}
+.recherche input {
+  width: 80%;
+  padding: 16px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin: 2% 0;
+}
+.recherche button {
+  background: #FFAC12;
+  color: #ffffff;
+  border: 0;
+  width: 17%;
+  border-radius: 8px ;
+  cursor: pointer;
+  height: 50px;
+}
+.recherche-barre{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-deposer {
+
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 7%;
+}
+.home-deposer h1 {
+  margin-top: 10%;
+}
+.deposer {
+  background-color: #fff;
+  color: #000;
+  padding: 50px;
+  border-radius: 8px;
+  width: 80%;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.deposer form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.deposer form div button{
+  margin: 0 auto;
+  background: #FFAC12;
+  color: #ffffff;
+  border: 0;
+  width: 17%;
+  border-radius: 8px ;
+  cursor: pointer;
+  height: 50px;
+}
+.deposer label {
+  text-align: left;
+  margin: 2% 0;
+  font-size: larger;
+  font-weight: 500;
+  font-size: 1.2vw;
+}
+.deposer input,select,textarea {
+  width: 60%;
+  cursor: pointer;
+}
