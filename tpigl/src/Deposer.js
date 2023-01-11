@@ -31,7 +31,7 @@ const Deposer = () => {
 
         <div>
             <label>Description du bien immobilier :</label>
-            <textarea cols="30" rows="10" required></textarea>
+            <textarea required></textarea>
         </div>
 
         <div>
@@ -45,7 +45,7 @@ const Deposer = () => {
         </div>
 
         <div>
-            <label>Photos du bien immobilier : </label>
+            <label>Photos du bien immobilier :</label>
             <input type="file"/>
         </div>
 
@@ -54,7 +54,9 @@ const Deposer = () => {
             <input type="tel"/>
         </div>
 
-        <button>Publier</button>
+        <div>
+            <button className="btn-deposer">Publier</button>
+        </div>
 
     </form>
     </div>

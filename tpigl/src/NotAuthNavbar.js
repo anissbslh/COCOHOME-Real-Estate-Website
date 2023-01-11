@@ -3,10 +3,11 @@ import {useRef, useState, useEffect} from 'react';
 
 
 
-const Navbar = ({user}) => {
+const NotAuthNavbar = () => {
 
     
-    return (
+
+   return (
         <nav className="navbar">
             <div>
                 <h1>COCOHOME</h1>
@@ -18,10 +19,11 @@ const Navbar = ({user}) => {
                 <Link to="/">Accueil</Link>
                 <Link to="/apropos">A propos</Link>
                 <Link to="/contact">Contact</Link>
-                <Link to="/auth" className="connect">{user.name}</Link>
+                <Link to="/auth" className="connect">Se connecter</Link>
             </div>
         </nav>
-    );
+        );
+    
 }
  
-export default Navbar;
+export default NotAuthNavbar;

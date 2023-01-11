@@ -6,8 +6,7 @@ const Recherche = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
     }
-
-
+    
   return (
     <div className="recherche">
         <form onSubmit={handleSubmit}>
