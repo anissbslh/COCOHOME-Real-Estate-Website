@@ -16,9 +16,9 @@ class AnnonceSerializer(serializers.ModelSerializer) :
             'adresse')
 
 class UserSerializer(serializers.ModelSerializer) :
-    class META :
+    class Meta :
         model = User
-        fields = ('first_name',
+        fields = ('userId','first_name',
             'last_name',
             'email'
            )

@@ -40,6 +40,7 @@ class Annonce(models.Model):
 
 
 class User(models.Model):
+        userId = models.AutoField(primary_key=True, serialize=False)
         first_name = models.CharField("First name", max_length=255)
         last_name = models.CharField("Last name", max_length=255)
         email = models.EmailField()

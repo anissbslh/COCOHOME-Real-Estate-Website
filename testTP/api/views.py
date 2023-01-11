@@ -4,8 +4,10 @@ from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 from .models import *
 from .serializers import *
- 
+from rest_framework.parsers import MultiPartParser
 
+from django.core.files.storage import default_storage
+ 
 # Create your views here.
 
 @csrf_exempt
@@ -34,3 +36,37 @@ def AnnonceApi(request, idd=0):
     annonce = Annonce.objects.get(id = idd)
     annonce.delete()
     return JsonResponse("Deleted Successfully", safe=False)
+
+
+@csrf_exempt
+def UserApi(request, idd=0):
+  if request.method == "GET" : 
+    users = User.objects.all()
+    users_serializer = UserSerializer(users,many = True)
+    return JsonResponse(users_serializer.data, safe=False)
+  elif request.method == "POST":
+    user_data = JSONParser().parse(request)
+    users_serializer = UserSerializer(data=user_data)
+    if users_serializer.is_valid():
+      users_serializer.save()
+      return JsonResponse("Ajoutée avec succes",safe = False)
+    return JsonResponse("Failed to Add",safe=False)
+  elif request.method == "PUT" : 
+    user_data = JSONParser().parse(request)
+    user = User.objects.get(userId = user_data['userId'])
+    users_serializer = UserSerializer(user,data=user_data)
+    if users_serializer.is_valid():
+      users_serializer.save()
+      return JsonResponse ("Update Successfully", safe=False)
+    return JsonResponse("Failed to update")
+  elif request.method == "DELETE":
+    user = User.objects.get(userId = idd)
+    user.delete()
+    return JsonResponse("Deleted Successfully", safe=False)
+
+
+@csrf_exempt
+def SaveFile(request):
+  file =request.FILES['file']
+  file_name = default_storage.save(file.name, file)
+  return JsonResponse(file_name, safe=False)
