@@ -1,25 +1,25 @@
 from rest_framework import serializers
-from models import *
+from .models import *
 
 class AnnonceSerializer(serializers.ModelSerializer) :
-    class META :
-        model = annonce
-        fields = ('title',
-            'text',
+    class Meta :
+        model = Annonce
+        fields = ('id','created_at','title',
+            'text', 'vendu',
             'categ',
             'description',
             'surface',
-            'price',
+            'price', 'type',
             'pic',
             'wilaya',
             'commune',
-            'adresse',)
+            'adresse')
 
 class UserSerializer(serializers.ModelSerializer) :
     class META :
         model = User
         fields = ('first_name',
             'last_name',
-            'email',
+            'email'
            )
 
