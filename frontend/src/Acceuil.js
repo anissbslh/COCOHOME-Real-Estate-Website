@@ -2,11 +2,11 @@ import image from './assets/acceuil-apropos.png';
 import {useRef} from 'react';
 
 import {GoogleLogin} from 'react-google-login';
-import {GoogleLogout} from 'react-google-login';
+
 
 const clientId = "889650749204-ro7qei6g1dg6e0313d85l687oab0dfnh.apps.googleusercontent.com";
 
-const Acceuil = ({onSuccess, onFailure, onLogoutSuccess}) => {
+const Acceuil = ({onSuccess, onFailure}) => {
 
 
     
@@ -43,14 +43,7 @@ const Acceuil = ({onSuccess, onFailure, onLogoutSuccess}) => {
                     />
                 </div>
 
-                <div id="signOutButton">
-                    <GoogleLogout
-                    className="accueil-btn-connecter"
-                    clientId={clientId}
-                    buttonText="deco :/"
-                    onLogoutSuccess={onLogoutSuccess}
-                    />
-                </div>
+                
 
             </div>
         </div>

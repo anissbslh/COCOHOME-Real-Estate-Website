@@ -43,6 +43,7 @@ function App() {
     setAuth(true);
     setUser(res.profileObj);
     console.log(res.profileObj.familyName);
+
 }
 
 const onFailure = (res) => {
@@ -66,7 +67,8 @@ const onLogoutSuccess = () => {
           <Switch>
 
             <Route exact path = "/">
-              <Acceuil onSuccess={onSuccess} onFailure={onFailure} onLogoutSuccess={onLogoutSuccess}/>
+              {auth ? <Home/> : <Acceuil onSuccess={onSuccess} onFailure={onFailure} onLogoutSuccess={onLogoutSuccess}/>} 
+              
             </Route>
 
             <Route path = "/contact">
@@ -81,6 +83,9 @@ const onLogoutSuccess = () => {
               <Home/>
             </Route>
 
+            <Route path = "/profil">
+              <Profil user={user} onLogoutSuccess={onLogoutSuccess}/>
+            </Route>
 
             <Route path="*">
               <NotFound/>

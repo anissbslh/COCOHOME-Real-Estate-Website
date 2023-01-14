@@ -19,7 +19,7 @@ const NotAuthNavbar = () => {
                 <Link to="/">Accueil</Link>
                 <Link to="/apropos">A propos</Link>
                 <Link to="/contact">Contact</Link>
-                <Link to="/auth" className="connect">Se connecter</Link>
+                <Link to="/auth" className="connect">Pas connecté</Link>
             </div>
         </nav>
         );

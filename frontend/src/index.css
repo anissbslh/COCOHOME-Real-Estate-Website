@@ -243,3 +243,39 @@
   width: 60%;
   cursor: pointer;
 }
+
+.profil-container {
+  height: 100vh;
+  background-color: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+.profil-menu {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 50px;
+  margin: 2%;
+  display: flex;
+  justify-content: space-between;
+  height: 60vh;
+  width: 90%;
+}
+.profil-profil {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 50px;
+  margin: 10% 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  height: 60vh;
+  width: 90%;
+}
+
+.profil-section {
+  background-color:#FFAC12;
+  border-radius: 15px;
+  padding: 25px;
+}
