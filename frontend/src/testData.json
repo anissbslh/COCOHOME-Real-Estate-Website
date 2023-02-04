@@ -1,0 +1,13 @@
+[
+  { "id": 1, "categorie": "Vente", "surface": 20, "date": "1/15/2023", "type": "Terrain", "wilaya": "Alger", "commune": "Bouzareah", "prix": "12000" },
+  { "id": 2, "categorie": "Echange", "surface": 20, "date": "12/8/2022", "type": "Villa", "wilaya": "Tizi", "commune": "Bouzareah", "prix": "12000" },
+  { "id": 3, "categorie": "Location", "surface": 20, "date": "1/19/2023", "type": "Bungalow", "wilaya": "Setif", "commune": "Bouzareah", "prix": "12000" },
+  { "id": 4, "categorie": "Vente", "surface": 20, "date": "2/5/2023", "type": "Appartement", "wilaya": "Alger", "commune": "Bouzareah", "prix": "12000" },
+  { "id": 5, "categorie": "Vente", "surface": 30, "date": "1/19/2023", "type": "Bungalow", "wilaya": "Setif", "commune": "Kouba", "prix": "12000" },
+  { "id": 6, "categorie": "Location", "surface": 30, "date": "12/31/2022", "type": "Terrain agricole", "wilaya": "Alger", "commune": "Kouba", "prix": "12000" },
+  { "id": 7, "categorie": "Location", "surface": 30, "date": "10/15/2022", "type": "Terrain", "wilaya": "Tizi", "commune": "Kouba", "prix": "12000" },
+  { "id": 8, "categorie": "Echange", "surface": 40, "date": "4/5/2023", "type": "Villa", "wilaya": "Tizi", "commune": "Kouba", "prix": "12000" },
+  { "id": 9, "categorie": "Echange", "surface": 40, "date": "2/1/2023", "type": "Villa", "wilaya": "Tizi", "commune": "Biar", "prix": "12000" },
+  { "id": 10, "categorie": "Location", "surface": 40, "date": "1/1/2023", "type": "Terrain agricole", "wilaya": "Alger", "commune": "Biar", "prix": "12000" },
+  { "id": 11, "categorie": "Vente", "surface": 50, "date": "1/2/2023", "type": "Appartement", "wilaya": "Setif", "commune": "Biar", "prix": "12000" }
+]
