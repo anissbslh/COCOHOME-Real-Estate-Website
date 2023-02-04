@@ -2,11 +2,22 @@ import React from 'react'
 import './AiDetails.css'
 import { IoArrowBackOutline } from 'react-icons/io5'
 
+/////////
+import { useAuthState } from 'react-firebase-hooks/auth'
+import firebase from './firebase-config.js';
+import { auth } from './firebase-config.js';
+import Chat from './Chat.js';
+import {Link, Route} from 'react-router-dom'
+/////////
+
+
 function AiDetails({detailsIsActive, setDetailsIsActive, categorie, type, wilaya, commune, prix, date, surface}) {
 
   const changeState = () => {
     setDetailsIsActive(!detailsIsActive);
   }
+
+  const [user]= useAuthState(auth)
 
   return (
 
@@ -66,7 +77,12 @@ function AiDetails({detailsIsActive, setDetailsIsActive, categorie, type, wilaya
                 <button className='offer-btns'>Voir profil</button>
                 <button className='offer-btns'>Sauvegarder l'annonce</button>
                 <button className='offer-btns'>Afficher la localisation sur Maps</button>
-                <button className='offer-btns'>Email</button>
+                <Link to={`/chat/${user}`}>
+                  <button className='offer-btns'>Contacter l'annonceur</button>
+                </Link>
+                <Route path="/chat" component={Chat} />
+                
+                
                 <textarea className="the-offer">
                   Ecrire votre message et faire une offre
                 </textarea>
