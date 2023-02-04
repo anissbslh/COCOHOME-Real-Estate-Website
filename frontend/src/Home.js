@@ -1,5 +1,6 @@
 import Recherche from "./Recherche"
 import Deposer from "./Deposer"
+import Filtre from "./Filtre"
 
 const Home = () => {
   return (
@@ -8,6 +9,10 @@ const Home = () => {
         <div className="home-recherche">
             <h1>Trouvez votre chez vous</h1>
             <Recherche/>
+        </div>
+        
+        <div className="filtrage">
+            <Filtre/>
         </div>
 
         <div className="home-deposer">
