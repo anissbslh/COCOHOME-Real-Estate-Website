@@ -23,3 +23,5 @@ class UserSerializer(serializers.ModelSerializer) :
             'email'
            )
 
+#test
+#test
