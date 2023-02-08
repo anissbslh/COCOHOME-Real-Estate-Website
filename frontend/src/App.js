@@ -1,102 +1,120 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {useRef, useState} from 'react';
 
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './Navbar.js';
-import Acceuil from './Acceuil';
-import Apropos from './Apropos';
-import Contact from './Contact';
-import Profil from './Profil';
-import NotFound from './NotFound';
-import Home from './Home';
-import NotAuthNavbar from './NotAuthNavbar';
+import { Provider } from 'react-redux';
 
-import {useEffect} from 'react';
+import store from './store';
+
+
+import Layout from './hocs/Layout';
+
+/*import containers*/ 
+import Acceuil from './containers/Acceuil';
+import AnnonceDetails from './containers/AnnonceDetails';
+import Annonces from './containers/Annonces';
+import Apropos from './containers/Apropos';
+import Contact from './containers/Contact';
+import Home from './containers/Home';
+import Login from './containers/Login';
+import Profil from './containers/Profil';
+import SignUp from './containers/SignUp';
+import NotAuthNavbar from './components/NotAuthNavbar';
+import Resultats from './components/Resultats';
+
+/*import components*/
+import NotFound from './components/NotFound'
+import Navbar from './components/Navbar';
+import GoogleAuth from './GoogleAuth';
+
+import {useEffect, useState} from 'react';
 import {gapi} from 'gapi-script';
+import Deposer from './components/Deposer';
 
-const clientId = "889650749204-ro7qei6g1dg6e0313d85l687oab0dfnh.apps.googleusercontent.com";
-
-
-
-function App() {
+//const clientId = "889650749204-ro7qei6g1dg6e0313d85l687oab0dfnh.apps.googleusercontent.com";
 
 
-  useEffect(()=> {
-    function start() {
-      gapi.client.init({
-        clientId : clientId,
-        scope: ""
-      })
-    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   const App = () => {
+
+  //   useEffect(()=> {
+  //     function start() {
+  //       gapi.client.init({
+  //         clientId : clientId,
+  //         scope: ""
+  //       })
+  //     };
+    
+  //     gapi.load('client:auth2', start);
+
+  //   });
+ 
+
   
-    gapi.load('client:auth2', start);
-
-  });
-
-  const [auth, setAuth] = useState(false);
-  const [user, setUser] = useState('');
-
-
-  const onSuccess = (res) => {
-    //console.log("login cool, uuser : ",res.isSignedIn());
-    setAuth(true);
-    setUser(res.profileObj);
-    console.log(res.profileObj.familyName);
-
-}
-
-const onFailure = (res) => {
-    console.log("login NOTcool, res : ",res);
-    setAuth(false);
-    setUser(null);
-}
-
-const onLogoutSuccess = () => {
-  setAuth(false);
-  console.log("log out cool ",auth);
-  
-}
 
 
   return (
-    <Router>
-      <div className="App">
-        {auth ? <Navbar user={user}/> : <NotAuthNavbar/>}
-        <div>
+    <Provider store={store}>
+      <Router>
+        <Layout>
+          <Navbar/>
           <Switch>
 
-            <Route exact path = "/">
-              {auth ? <Home/> : <Acceuil onSuccess={onSuccess} onFailure={onFailure} onLogoutSuccess={onLogoutSuccess}/>} 
-              
+            <Route exact path = '/'>
+              <Acceuil />
             </Route>
 
-            <Route path = "/contact">
-              <Contact/>
+            <Route exact path = "/apropos" component={Apropos}/>
+            <Route exact path = "/contact" component={Contact}/>
+            <Route exact path = "/annonces" component={Annonces}/>
+            <Route exact path = "/annonces/:annonceId" component={AnnonceDetails}/>
+            <Route exact path = "/login" component={Login}/>
+            <Route exact path = "/signup" component={SignUp}/>
+            <Route exact path = "/home">
+              <Home />
             </Route>
-
-            <Route path = "/apropos">
-              <Apropos/>
+            <Route exact path = "/profil">
+              <Profil/>
             </Route>
+            <Route path="/search" component={Resultats} />
+            <Route path="/home/deposer" component={Deposer}/>
 
-            <Route path = "/auth">
-              <Home/>
-            </Route>
-
-            <Route path = "/profil">
-              <Profil user={user} onLogoutSuccess={onLogoutSuccess}/>
-            </Route>
-
-            <Route path="*">
-              <NotFound/>
-            </Route>
-
+            <Route component={NotFound}/>
+            
+            
           </Switch>
-        </div>
-        
-      </div>
-    </Router>
+        </Layout>
+      </Router>
+      </Provider>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

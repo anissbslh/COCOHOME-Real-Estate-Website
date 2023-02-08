@@ -17,6 +17,7 @@
     height: 160px;
     width: 160px;
     border-radius: 7px;
+
 }
 
 .ai-details-btn {
@@ -28,9 +29,9 @@
     background-color: #FFAC12;
     color: #F5F5F5;
     cursor: pointer;
-    font-weight: bold;    
+    font-weight:lighter;    
 }
 
-.ai-details-btn:hover {
+.details-btn:hover {
     background-color: #e99e13;   
 }
