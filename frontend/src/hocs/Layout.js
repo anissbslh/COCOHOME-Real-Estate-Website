@@ -9,7 +9,7 @@ const Layout = (props) => {
 
   return (
     <div>
-        <Navbar auth={auth} user={user}/>
+        
         {props.children}
     </div>
   )

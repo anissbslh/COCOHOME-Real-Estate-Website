@@ -7,12 +7,13 @@ import PropTypes from 'prop-types'
 
 
 
-const Navbar = () => {
+const Navbar = ({auth, email}) => {
 
     const authLinks = (
         <Fragment>
-            <Link to="/profil">{"AAA"}</Link>
-            <a onClick={logout} href="/">Se déconnecter</a>
+            <Link to="/profil">{email}</Link>
+            <Link to="/annonces">Annonces</Link>
+            <a onClick={logout} href="/">deco</a>
         </Fragment>
     );
 
@@ -32,8 +33,8 @@ const Navbar = () => {
     
                 <div className="links">
                     <Link to="/">Accueil</Link>
-                    <Link to="/annonces">Annonces</Link>
-                    <Fragment>{false ? authLinks : guestLinks}</Fragment>
+                    
+                    <Fragment>{auth ? authLinks : guestLinks}</Fragment>
                 </div>
             </nav>
             <Alert/>
@@ -41,9 +42,6 @@ const Navbar = () => {
     );
 }
 
-Navbar.propTypes = {
-    auth : PropTypes.object.isRequired
-}
 
 const mapStateToProps = state => ({
     auth: state.auth

@@ -4,7 +4,7 @@ import donnees_communes from '../donnees_communes.json'
 import { useHistory } from "react-router-dom";
 import axiosInstance from "../axios";
 
-const Deposer = () => {
+const Deposer = ({email}) => {
 
     const [annonceData, setAnnonceData] = useState({
         titre : '',
@@ -14,8 +14,8 @@ const Deposer = () => {
         description : '',
         prix : '',
         adresse : '',
-        user : 1,
-        wilaya : '',
+        user : 2,
+        wilaya : 'Adrar',
         commune : '',       
         dateDePublication : '14-02'
     });
@@ -76,6 +76,19 @@ const Deposer = () => {
     
     }
 
+    // const wilayas = ['Adrar','Chlef','Laghouat','Oum El Bouaghi','Batna','Béjaïa','Biskra'
+    // ,'Béchar','Blida','Bouira','Tamanrasset','Tébessa','Tlemcen','Tiaret','Tizi Ouzou','Alger','Djelfa','Jijel','Sétif','Saïda','Skikda','Sidi Bel Abbés','Annaba'
+    // ,'Guelma','Constantine','Médéa','Mostaganem',"M'sila",'Mascara','Ouargla','Oran','El Bayadh','Illizi','Bordj Bou Arreridj','Boumerdès','El Tarf','Tindouf','Tissemsilt','El Oued','Khenchela','Souk Ahras','Tipaza'
+    // ,'Mila','Aïn Defla','Naâma','Aïn Témouchent','Ghardaïa','Relizane','Timimoun','Bordj Badji Mokhtar','Ouled Djellal','Béni Abbès','In Salah','In Guezzam','Touggourt','Djanet',"El M'Ghair",'El Meniaa']
+
+    const wilaya = []
+    donnees_communes.map((truc)=>{
+        wilaya.push(truc.wilaya)
+    })
+
+    
+    var wilayas = Array.from(new Set(wilaya));
+
   return (
     <div className="deposer">
     <form onSubmit={onSubmit}>
@@ -126,16 +139,25 @@ const Deposer = () => {
         
         <div>
             <label>Wilaya</label>
-            <select name = "wilaya" onChange={e => onChange(e)} value={annonceData.typeDuBien}>
-            <option selected disabled="true">-- Choose wilaya --</option>
-                {donnees_communes.map((option) => (
-                <option value={option.wilaya}>{option.wilaya}</option>
+            <select name = "wilaya" onChange={e => onChange(e)} value={annonceData.wilaya}>
+                {wilayas.map((option) => (
+                <option value={option}>{option}</option>
             ))}
+
+                
+
             </select>
         </div>
         <div>
             <label>Commune</label>
-            <input type="text" name ="commune" onChange={e => onChange(e)} value={annonceData.commune}/>
+            <select name = "commune" onChange={e => onChange(e)} value={annonceData.commune}>
+                {donnees_communes.map((option) => 
+                     (
+
+                <option value={option.commune}> {option.commune} </option>
+            )
+            )}
+            </select>
         </div>
 
         <div>

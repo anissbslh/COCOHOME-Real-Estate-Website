@@ -71,7 +71,7 @@ import Deposer from './components/Deposer';
     <Provider store={store}>
       <Router>
         <Layout>
-          <Navbar/>
+          
           <Switch>
 
             <Route exact path = '/'>
@@ -84,14 +84,12 @@ import Deposer from './components/Deposer';
             <Route exact path = "/annonces/:annonceId" component={AnnonceDetails}/>
             <Route exact path = "/login" component={Login}/>
             <Route exact path = "/signup" component={SignUp}/>
-            <Route exact path = "/home">
-              <Home />
-            </Route>
+            
             <Route exact path = "/profil">
               <Profil/>
             </Route>
             <Route path="/search" component={Resultats} />
-            <Route path="/home/deposer" component={Deposer}/>
+            <Route path="/deposer" component={Deposer}/>
 
             <Route component={NotFound}/>
             

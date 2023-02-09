@@ -1,4 +1,4 @@
-from .views import AnnonceList, AnnonceDetail, AnnonceSearch, AnnonceListDetailfilter, CreateAnnonce, EditAnnonce, DeleteAnnonce, AdminAnnonceDetail
+from .views import AnnonceList, AnnonceDetail, AnnonceSearch, AnnonceListDetailfilter, CreateAnnonce, EditAnnonce, DeleteAnnonce, AdminAnnonceDetail, AnnonceUser
 #from rest_framework.routers import DefaultRouter
 from django.urls import path
 
@@ -10,6 +10,7 @@ app_name = 'blog_api'
 
 urlpatterns = [
     path('annonces/<int:pk>', AnnonceDetail.as_view(), name='detailcreate'),
+    path('', AnnonceUser.as_view(), name='detailcreate'),
     path('search/', AnnonceListDetailfilter.as_view(), name='postsearch'),
     path('annonces/', AnnonceList.as_view(), name='listcreate'),
 

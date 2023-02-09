@@ -69,7 +69,7 @@ function AnnonceDetails() {
                   </div>
                   
                   <div className="img-details">
-                    <img className='img-details' src={require("../assets/annonces-assets/Villa.jpg")} alt="photo"/>
+                    <img className='img-details' src={data.annonces.image} alt="photo"/>
                     Pictures
                   </div>
                   

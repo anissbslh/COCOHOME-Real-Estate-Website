@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    email = models.EmailField(unique=True)
+    email = models.EmailField( unique=True)
     username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=50, blank=True)

@@ -10,10 +10,10 @@ import usersif from '../testData.json';
 import AI from './AI';
 
 
-function Filtre() {
+function Filtre({annonces}) {
 
-  const options1 = ["type", "Villa", "Appartement", "Terrain", "Terrain agricole", "Bungalow"];
-  const options2 = ["wilaya", "Alger", "Tizi", "Setif"];
+  const options1 = ["type", "maison", "appartement", "terrain", "terrain agricole", "bungalow"];
+  const options2 = ["wilaya", "Alger", "Tizi Ouzou", "Setif"];
   const options3 = ["commune", "Bouzareah", "Kouba", "Biar"];
 
   const [selected1, setSelected1] = useState("type");
@@ -68,29 +68,29 @@ function Filtre() {
       if (selected2 === "wilaya") {
         if (selected3 === "commune") {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => (compareDate(userf.date) === true)).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => (compareDate(userf.dateDePublication) === true)).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         } else {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => (userf.commune === selected3)).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => (userf.commune === selected3)).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.commune === selected3) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.commune === selected3) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         }
       } else {
         if (selected3 === "commune") {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => (userf.wilaya === selected2)).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => (userf.wilaya === selected2)).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} />)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.wilaya === selected2) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.wilaya === selected2) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         } else {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.wilaya === selected2) && (userf.commune === selected3))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.wilaya === selected2) && (userf.commune === selected3))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.wilaya === selected2) && (userf.commune === selected3) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.wilaya === selected2) && (userf.commune === selected3) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         }
       }
@@ -98,29 +98,29 @@ function Filtre() {
       if (selected2 === "wilaya") {
         if (selected3 === "commune") {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => (userf.type === selected1)).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => (userf.typeDuBien === selected1)).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.typeDuBien === selected1) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         } else {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (userf.commune === selected3))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.typeDuBien === selected1) && (userf.commune === selected3))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (userf.commune === selected3) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.typeDuBien === selected1) && (userf.commune === selected3) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         }
       } else {
         if (selected3 === "commune") {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (userf.wilaya === selected2))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.typeDuBien === selected1) && (userf.wilaya === selected2))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} />)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (userf.wilaya === selected2) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.type === selected1) && (userf.wilaya === selected2) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         } else {
           if (isSelected4 === false) {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (userf.wilaya === selected2) && (userf.commune === selected3))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.typeDuBien === selected1) && (userf.wilaya === selected2) && (userf.commune === selected3))).map(user => <AI categorie={user.categorie} type={user.typeDuBien} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           } else {
-            return (<div className="annonces">{usersif.filter(userf => ((userf.type === selected1) && (userf.wilaya === selected2) && (userf.commune === selected3) && (compareDate(userf.date) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.date} />)}</div>);
+            return (<div className="annonces">{annonces.filter(userf => ((userf.typeDuBien === selected1) && (userf.wilaya === selected2) && (userf.commune === selected3) && (compareDate(userf.dateDePublication) === true))).map(user => <AI categorie={user.categorie} type={user.type} wilaya={user.wilaya} commune={user.commune} prix={user.prix} date={user.dateDePublication} image={user.image}/>)}</div>);
           }
         }
       }

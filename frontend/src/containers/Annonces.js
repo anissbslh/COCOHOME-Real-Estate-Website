@@ -19,10 +19,9 @@ const Annonces = () => {
 
   return (
     <div>
-      <h1>ANNONCES !</h1>
-      <h1>ANNONCES !</h1>
-      <h1>ANNONCES !</h1>
-    <div className="annonces-container">
+      <div className="home-recherche">
+            <h1>Annonces</h1>
+            <div className="annonces-container">
       {annonces.map((annonce) => {
         return (
           <Link to={'annonces/'+annonce.annonceId}>
@@ -31,6 +30,10 @@ const Annonces = () => {
         )
       })}
     </div>
+            
+            
+        </div>
+    
     </div>
 
   )

@@ -35,12 +35,20 @@ class AnnonceList(generics.ListAPIView):
     queryset = Annonce.objects.all()
 
 
+
 class AnnonceDetail(generics.RetrieveAPIView):
     serializer_class = AnnonceSerializer
 
     def get_object(self, queryset = None, **kwargs):
         item = self.kwargs.get('pk')
         return get_object_or_404(Annonce, pk=item)
+
+class AnnonceUser(generics.ListAPIView):
+    serializer_class = AnnonceSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Annonce.objects.filter(user = user)
 
 
 class AnnonceListDetailfilter(generics.ListAPIView):

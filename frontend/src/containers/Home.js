@@ -19,25 +19,6 @@ const Home = () => {
   const currentAnnonces =  annonces.slice(indexOfFirstAnnonce, indexOfLastAnnonce);
 
 
-  const visitPage = (page) => {
-    setCurrentPage(page);
-    setActive(page);
-  };
-
-  const previous_number = () => {
-    if (currentPage !== 1) {
-        setCurrentPage(currentPage-1);
-        setActive(currentPage-1);
-    }
-};
-
-const next_number = () => {
-  if (currentPage !== Math.ceil(annonces.length/3)) {
-      setCurrentPage(currentPage+1);
-      setActive(currentPage+1);
-  }
-};
-
   return (
 
     <div className="home">
